@@ -1,4 +1,6 @@
-= one-time-action
+= jQuery plugin: one_time_action
+
+== About
 
 JQuery plugin that can be used on submits and links: Makes them work only once. 
 They can be reactivated after a given time or remain dead forever.

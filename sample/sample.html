@@ -5,15 +5,20 @@
     <script type="text/javascript" src="../src/jquery.one_time_action.js"></script>
     <script type="text/javascript">
       jQuery(function($){
-        $(".once").one_time_action();
+        $(".alerts-once").one_time_action().click(function(evt){
+          evt.preventDefault();
+          alert("once");
+        });
       });
     </script>
   </head>
   <body>
     <h1>one_time_action</h1>
 
-    <p>
-
-    </p>
+    <ul>
+      <li>
+        <a href="#" class="alerts-once">Alerts once</a>
+      </li>
+    </ul>
   </body>
 </html>
