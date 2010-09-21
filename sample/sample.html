@@ -5,20 +5,41 @@
     <script type="text/javascript" src="../src/jquery.one_time_action.js"></script>
     <script type="text/javascript">
       jQuery(function($){
-        $(".alerts-once").one_time_action().click(function(evt){
+        /**
+         * Prints 'X' next to given element. Shows that something happened.
+         */
+        var alert_action = function(e) {
+          var s = $(e).find("~ span");
+          s.html("X" + s.html());
+        };
+        $("li").append("<span/>");
+        $(".once").one_time_action({add_class: "disabled"}).click(function(evt){
           evt.preventDefault();
-          alert("once");
+          alert_action(this);
+        });
+        $(".reactivate").one_time_action({add_class: "disabled", reactivate: 2500}).click(function(evt){
+          evt.preventDefault();
+          alert_action(this);
         });
       });
     </script>
+    <style type="text/css">
+      .disabled {
+        text-decoration: line-through;
+      }
+      span {
+        color: #aaa;
+      }
+    </style>
   </head>
   <body>
     <h1>one_time_action</h1>
 
-    <ul>
-      <li>
-        <a href="#" class="alerts-once">Alerts once</a>
-      </li>
-    </ul>
+    <form action="">
+      <ul>
+        <li><a href="#" class="once">Once</a></li>
+        <li><a href="#" class="reactivate">Reactivating</a></li>
+      </ul>
+    </form>
   </body>
 </html>
