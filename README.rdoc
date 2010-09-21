@@ -1,24 +1,23 @@
 = one-time-action
 
-_one-time-action_ is a jquery plugin that can be used on submits and links.
-
-Links and submits only shoot once. They can be reactivated after a given time or remain dead forever.
+JQuery plugin that can be used on submits and links: Makes them work only once. 
+They can be reactivated after a given time or remain dead forever.
 
 == For what to use?
 
 * Everything that shall work only once, e.g.:
- * Submit-buttons that shall be deactivated after click (so you won't get multiple submits from a single form)
+  * Submit-buttons that shall be deactivated after click (so you won't get multiple submits from a single form)
 * Everything that shall be used only every some seconds, e.g.:
- * Async update buttons for, let's say guestbooks
- * Async send buttons for, let's say guestbooks
+  * Async update buttons for, let's say guestbooks
+  * Async send buttons for, let's say guestbooks
 
 == Usage
 
-+$(".my-selector").one_time_action();+
-_Removes functionality on click_
+ $(".my-selector").one_time_action();
+Removes functionality on click
 
-+$(".my-selector").one_time_action({class: "disabled"});+
-_Additionally adds given class to element when clicked_
+ $(".my-selector").one_time_action({class: "disabled"});
+Additionally adds given class to element when clicked
 
-+$(".my-selector").one_time_action({reactivate: 5000});+
-_Reactivates element functionality after given millis_ 
+ $(".my-selector").one_time_action({reactivate: 5000});
+Reactivates element functionality after given millis 
