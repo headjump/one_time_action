@@ -12,24 +12,24 @@
           var s = $(e).find("~ span");
           s.html("X" + s.html());
         };
+
         $("li").append("<span/>");
-        $(".once").one_time_action({add_class: "disabled"}).click(function(evt){
-          evt.preventDefault();
-          alert_action(this);
-        });
-        $(".reactivate").one_time_action({add_class: "disabled", reactivate: 2500}).click(function(evt){
-          evt.preventDefault();
-          alert_action(this);
+        var onces= $(".once").one_time_action({add_class: "disabled"});
+        var reacts = $(".reactivate").one_time_action({add_class: "disabled", reactivate: 2500});
+
+        onces.add(reacts).each(function() {
+          var e = $(this);
+          e[e.is("input[type=submit]") ? "submit" : "click"](function(evt) {
+            evt.preventDefault();
+            alert_action(this);
+          });
         });
       });
     </script>
+
     <style type="text/css">
-      .disabled {
-        text-decoration: line-through;
-      }
-      span {
-        color: #aaa;
-      }
+      .disabled { text-decoration: line-through; }
+      span { color: #aaa; }
     </style>
   </head>
   <body>
@@ -39,6 +39,8 @@
       <ul>
         <li><a href="#" class="once">Once</a></li>
         <li><a href="#" class="reactivate">Reactivating</a></li>
+        <li><input type="submit" value="Once"/></li>
+        <li><input type="submit" value="Reactivating"/></li>
       </ul>
     </form>
   </body>
