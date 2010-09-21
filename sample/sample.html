@@ -15,14 +15,12 @@
 
         $("li").append("<span/>");
         var onces= $(".once").one_time_action({add_class: "disabled"});
-        var reacts = $(".reactivate").one_time_action({add_class: "disabled", reactivate: 2500});
+        var reacts = $(".reactivate").one_time_action({add_class: "disabled", reactivate: 1500});
 
-        onces.add(reacts).each(function() {
-          var e = $(this);
-          e[e.is("input[type=submit]") ? "submit" : "click"](function(evt) {
-            evt.preventDefault();
-            alert_action(this);
-          });
+        onces.add(reacts).click(function(evt) {
+          alert("xxx");
+          evt.preventDefault();
+          alert_action(this);
         });
       });
     </script>
@@ -39,8 +37,10 @@
       <ul>
         <li><a href="#" class="once">Once</a></li>
         <li><a href="#" class="reactivate">Reactivating</a></li>
-        <li><input type="submit" value="Once"/></li>
-        <li><input type="submit" value="Reactivating"/></li>
+        <li><input type="submit" class="once" value="Once"/></li>
+        <li><input type="submit" class="reactivate" value="Reactivating"/></li>
+        <li><input type="button" onclick="alert('xxx');"class="once" value="Once"/></li>
+        <li><input type="button" class="reactivate" value="Reactivating"/></li>
       </ul>
     </form>
   </body>
