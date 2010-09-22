@@ -3,7 +3,7 @@
 == About
 
 JQuery plugin that can be used on submits, buttons and links: Makes them work only once.
-They can be reactivated after a given time or remain dead forever.
+They can be reactivated after a given time or by a specific function call.
 
 Demo at http://www.headjump.de/article/jquery-plugin-one_time_action
 
@@ -11,9 +11,10 @@ Demo at http://www.headjump.de/article/jquery-plugin-one_time_action
 
 * Everything that shall work only once, e.g.:
   * Submit-buttons that shall be deactivated after click (so you won't get multiple submits from a single form)
-* Everything that shall be used only every some seconds, e.g.:
+* Everything that shall be used only every some seconds (means: reactivation after timeout), e.g.:
   * Async refresh buttons for, let's say guestbooks
   * Async send buttons for, let's say guestbooks
+* Everything that shall be disabled after usage and reactivated later on (e.g. after an ajax callback or another event) - with a simple function call
 
 == Usage
 
@@ -21,10 +22,13 @@ Demo at http://www.headjump.de/article/jquery-plugin-one_time_action
 Removes functionality on click
 
  $(".my-selector").one_time_action({class: "disabled"});
-Additionally adds given class to element when clicked
+Additionally adds given class to element when clicked.
 
  $(".my-selector").one_time_action({reactivate: 5000});
-Reactivates element functionality after given millis
+Element will be reactivated after given milliseconds.
+
+ $(".my-selector").one_time_action("reactivate");
+Reactivates element immediately.
 
 === How it works
 
