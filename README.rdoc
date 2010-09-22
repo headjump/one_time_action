@@ -5,6 +5,8 @@
 JQuery plugin that can be used on submits, buttons and links: Makes them work only once.
 They can be reactivated after a given time or remain dead forever.
 
+Demo at http://www.headjump.de/article/jquery-plugin-one_time_action
+
 == For what to use?
 
 * Everything that shall work only once, e.g.:
