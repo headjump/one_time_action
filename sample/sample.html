@@ -18,7 +18,6 @@
         var reacts = $(".reactivate").one_time_action({add_class: "disabled", reactivate: 1500});
 
         onces.add(reacts).click(function(evt) {
-          alert("xxx");
           evt.preventDefault();
           alert_action(this);
         });
@@ -39,7 +38,7 @@
         <li><a href="#" class="reactivate">Reactivating</a></li>
         <li><input type="submit" class="once" value="Once"/></li>
         <li><input type="submit" class="reactivate" value="Reactivating"/></li>
-        <li><input type="button" onclick="alert('xxx');"class="once" value="Once"/></li>
+        <li><input type="button" class="once" value="Once"/></li>
         <li><input type="button" class="reactivate" value="Reactivating"/></li>
       </ul>
     </form>

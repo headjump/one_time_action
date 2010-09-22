@@ -34,6 +34,11 @@
     } else if(e.is("input[type=button]")) {
       e.click(kill_event);
     }
+    e.attr({
+      onmousedown: "",
+      onmouseup: "",
+      onclick: ""
+    });
   };
 
   $.fn.one_time_action = function( options ) {  
