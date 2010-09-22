@@ -16,8 +16,7 @@
         $("li").append("<span/>");
         var onces= $(".once").one_time_action({add_class: "disabled"});
         var reacts = $(".reactivating").one_time_action({add_class: "disabled", reactivate: 1500});
-        var manuals = $(".manual-reactivate").one_time_action({add_class: "disabled"});
-        onces.add(reacts).add(manuals).click(function(evt) {
+        onces.add(reacts).click(function(evt) {
           evt.preventDefault();
           alert_action(this);
         }).each(function() {
