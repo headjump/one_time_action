@@ -15,13 +15,13 @@
 
         $("li").append("<span/>");
         var onces= $(".once").one_time_action({add_class: "disabled"});
-        var reacts = $(".reactivate").one_time_action({add_class: "disabled", reactivate: 1500});
+        var reacts = $(".reactivating").one_time_action({add_class: "disabled", reactivate: 1500});
         var manuals = $(".manual-reactivate").one_time_action({add_class: "disabled"});
         onces.add(reacts).add(manuals).click(function(evt) {
           evt.preventDefault();
           alert_action(this);
         }).each(function() {
-          $(this).after($("<a href='#'>(reactivate)</a>").click(function(evt) {
+          $(this).after($("<a href='#' class='reactivate'>(reactivate)</a>").click(function(evt) {
             $(this).parent().children().first().one_time_action("reactivate");
             evt.preventDefault();
           }));
@@ -31,6 +31,7 @@
 
     <style type="text/css">
       .disabled, a.disabled, a:hover.disabled { text-decoration: line-through; }
+      .reactivate, a.reactivate, a:hover.reactivate{ color: #aaa; font-style: italic; text-decoration: underline; margin: 0 5px;}
       span { color: #aaa; }
     </style>
   </head>
@@ -42,19 +43,19 @@
         <li>Link
           <ul>
             <li><a href="#" class="once">Once</a></li>
-            <li><a href="#" class="reactivate">Reactivation after timeout</a></li>
+            <li><a href="#" class="reactivating">Reactivation after timeout</a></li>
           </ul>
         </li>
         <li>Submit
           <ul>
             <li><input type="submit" class="once" value="Once"/></li>
-            <li><input type="submit" class="reactivate" value="Reactivation after timeout"/></li>
+            <li><input type="submit" class="reactivating" value="Reactivation after timeout"/></li>
           </ul>
         </li>
         <li>Button
           <ul>
           <li><input type="button" class="once" value="Once"/></li>
-          <li><input type="button" class="reactivate" value="Reactivation after timeout"/></li>
+          <li><input type="button" class="reactivating" value="Reactivation after timeout"/></li>
           </ul>
         </li>
       </ul>

@@ -45,9 +45,9 @@
 
   var reactivate = function(e) {
     var timeout_id = $(e).data("one_time_action_timeout");
-    if(timeout_id && timeout_id !== -1) {
+    if(timeout_id) {
       clearTimeout(timeout_id);
-      $(e).data("one_time_action_timeout", -1);
+      $(e).data("one_time_action_timeout", null);
     }
     var clone = e.data("one_time_action_clone");
     if(clone) {
