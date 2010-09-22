@@ -2,7 +2,7 @@
  * one_time_action JavaScript plugin for jQuery
  * http://github.com/headjump/one_time_action
  *
- * Makes submits and links work only once - and can reactivate them after a given time if you want.
+ * Makes submits, buttons and links work only once - and can reactivate them after a given time or by calling a function.
  *
  * Copyright 2010, Dennis Treder (info@dennistreder.de | http://headjump.de)
  * This program is free software. It comes without any warranty, to
@@ -11,7 +11,7 @@
  * To Public License, Version 2, as published by Sam Hocevar. See
  * http://sam.zoy.org/wtfpl/COPYING for more details.
  */
-/*global setTimeout, jQuery */
+/*global setTimeout, clearTimeout, jQuery */
 
 (function($) {
   /**
@@ -43,18 +43,33 @@
     });
   };
 
+  var reactivate = function(e) {
+    var timeout_id = $(e).data("one_time_action_timeout");
+    if(timeout_id && timeout_id !== -1) {
+      clearTimeout(timeout_id);
+      $(e).data("one_time_action_timeout", -1);
+    }
+    e.show();
+    e.data("one_time_action_clone").hide();
+  };
+
   $.fn.one_time_action = function( options ) {  
     var o = {
       reactivate: -1,
       add_class: ""
     };
-    if ( options ) {
+    if ( options && options !== "reactivate") {
       $.extend( o, options );
     }
 
     return this.each(function() {
       var e = $(this);
-      
+
+      if(options === "reactivate") {
+        reactivate(e);
+        return;
+      }
+
       e.click(function(evt) {
         var c = e.data("one_time_action_clone");
         if(!c) {
@@ -71,10 +86,9 @@
         c.show();
 
         if(o.reactivate !== -1) {
-          setTimeout(function() {
-            e.show();
-            e.data("one_time_action_clone").hide();
-          }, o.reactivate);
+          e.data("one_time_action_timeout", setTimeout(function() {
+            reactivate(e);
+          }, o.reactivate));
         }
       });
     });
