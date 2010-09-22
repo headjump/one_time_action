@@ -2,7 +2,7 @@
 
 == About
 
-JQuery plugin that can be used on submits and links: Makes them work only once. 
+JQuery plugin that can be used on submits, buttons and links: Makes them work only once.
 They can be reactivated after a given time or remain dead forever.
 
 == For what to use?
@@ -10,7 +10,7 @@ They can be reactivated after a given time or remain dead forever.
 * Everything that shall work only once, e.g.:
   * Submit-buttons that shall be deactivated after click (so you won't get multiple submits from a single form)
 * Everything that shall be used only every some seconds, e.g.:
-  * Async update buttons for, let's say guestbooks
+  * Async refresh buttons for, let's say guestbooks
   * Async send buttons for, let's say guestbooks
 
 == Usage
@@ -22,4 +22,16 @@ Removes functionality on click
 Additionally adds given class to element when clicked
 
  $(".my-selector").one_time_action({reactivate: 5000});
-Reactivates element functionality after given millis 
+Reactivates element functionality after given millis
+
+=== How it works
+
+The target element is cloned, disabled, and shown instead of the original.
+
+The cloned element is insert after the original one to the DOM. original.hide(), clone.show()
+
+There are several reasons for creating a clone instead of disabling the original element:
+* At first, some browsers don't proceed submitting a form if you disable a submit button on click. So if one just hides the button and showes a disabled clone instead, everything works just fine.
+* Disabling the element shall not only kill form submits and url changes from link clicking, but prevend bound click functions. That's done the easiest by cloning without cloning the bindings.
+
+In order to not only disable the click bindings done with jQuery but also the ones inside the HTML tag (e.g. onclick="do_some_crazy-stuff();"), the disabled element clone empties "onclick", "onmousedown" and "onmouseup". If you have other functions in your attributes, they'll remain (e.g. "onmousemove", ...)

@@ -1,8 +1,10 @@
 /*!
  * one_time_action JavaScript plugin for jQuery
- * http://github.com/headjump/one-time-action
+ * http://github.com/headjump/one_time_action
  *
- * Copyright 2010, Dennis Treder
+ * Makes submits and links work only once - and can reactivate them after a given time if you want.
+ *
+ * Copyright 2010, Dennis Treder (info@dennistreder.de | http://headjump.de)
  * This program is free software. It comes without any warranty, to
  * the extent permitted by applicable law. You can redistribute it
  * and/or modify it under the terms of the Do What The Fuck You Want
