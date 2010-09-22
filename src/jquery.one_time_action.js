@@ -49,8 +49,11 @@
       clearTimeout(timeout_id);
       $(e).data("one_time_action_timeout", -1);
     }
-    e.show();
-    e.data("one_time_action_clone").hide();
+    var clone = e.data("one_time_action_clone");
+    if(clone) {
+      e.show();
+      clone.hide();
+    }
   };
 
   $.fn.one_time_action = function( options ) {  
