@@ -21,7 +21,7 @@ Demo at http://www.headjump.de/article/jquery-plugin-one_time_action
  $(".my-selector").one_time_action();
 Removes functionality on click
 
- $(".my-selector").one_time_action({class: "disabled"});
+ $(".my-selector").one_time_action({add_class: "disabled"});
 Additionally adds given class to element when clicked.
 
  $(".my-selector").one_time_action({reactivate: 5000});
