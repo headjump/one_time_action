@@ -30,10 +30,8 @@
     if(e.is("a")) {
       e.attr("href", "#");
       e.click(kill_event);
-    } else if(e.is("input[type=submit]")) {
+    } else if(e.is("input[type=submit],input[type=button]")) {
       e.attr("disabled", true);
-      e.click(kill_event);
-    } else if(e.is("input[type=button]")) {
       e.click(kill_event);
     }
     e.attr({
