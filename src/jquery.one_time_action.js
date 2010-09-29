@@ -28,7 +28,7 @@
    */
   var kill_action = function(e) {
     if(e.is("a")) {
-      e.attr("href", "#");
+      e.attr("href", "javascript:void(0);");
       e.click(kill_event);
     } else if(e.is("input[type=submit],input[type=button]")) {
       e.attr("disabled", true);
