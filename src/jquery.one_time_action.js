@@ -1,16 +1,11 @@
 /*!
  * one_time_action JavaScript plugin for jQuery
- * http://github.com/headjump/one_time_action
  *
  * Makes submits, buttons and links work only once - and can reactivate them after a given time or by calling a function.
  *
- * Copyright 2010, Dennis Treder (info@dennistreder.de | http://headjump.de)
- * This program is free software. It comes without any warranty, to
- * the extent permitted by applicable law. You can redistribute it
- * and/or modify it under the terms of the Do What The Fuck You Want
- * To Public License, Version 2, as published by Sam Hocevar. See
- * http://sam.zoy.org/wtfpl/COPYING for more details.
+ * This work is licensed under a [Creative Commons Attribution-ShareAlike 3.0 Unported License](http://creativecommons.org/licenses/by-sa/3.0/).
  */
+ 
 /*global setTimeout, clearTimeout, jQuery */
 
 (function($) {
